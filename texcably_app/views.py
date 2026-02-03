@@ -5,12 +5,11 @@ from django.views import View
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, LoginForm
 
 # Create your views here.
 
@@ -37,7 +36,7 @@ class CreateAccountView(CreateView):
 
 class UserLoginView(LoginView):
     model = User
-    form_class = AuthenticationForm
+    form_class = LoginForm
     template_name = 'texcably_app/login.html'
 
     def get_success_url(self):

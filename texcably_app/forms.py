@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class CreateUserForm(UserCreationForm):
@@ -11,3 +11,46 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Username',
+        })
+        self.fields['password1'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Password',
+        })
+
+
+class LoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['username'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Username',
+        })
+        self.fields['password'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Password',
+        })
+        self.fields['username'].error_messages.update({
+            'required': 'Please enter your username',
+            'max_length': 'Username too long'
+        })
+        self.fields['password'].error_messages.update({
+            'required': 'Please enter your password',
+            'max_length': 'Password too long'
+        })
+
+        if self.errors and 'username' in self.errors:
+            self.fields['username'].widget.attrs.update({
+                'class': 'error',
+            })
+        if self.errors and 'password' in self.errors:
+            self.fields['password'].widget.attrs.update({
+                'class': 'error',
+            })

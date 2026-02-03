@@ -1,0 +1,13 @@
+:root {
+    --serif: 'Libre Baskerville', serif;
+    --sans-serif: 'Nunito Sans', sans-serif;
+    --dark-green: 6, 41, 31;
+    --medium-green: 14, 97, 75;
+    --form-error: 181, 14, 14;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

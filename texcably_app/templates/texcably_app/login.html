@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %}
+{% load static %}
 
+{% block title %}
+    Sign In
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'texcably_app/css/login.css' %}">
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+    <form method="post" class="login-form" novalidate>
+        <h1>Sign In</h1>
+        <p>No account? Create one <a href="{% url 'create_account' %}">here</a></p>
         {% csrf_token %}
-        {{ form }}
+        {{ form.username }}
+        {{ form.username.errors }}
+        {{ form.password }}
+        {{ form.password.errors }}
         <button type="submit">Log In</button>
     </form>
 {% endblock %}
