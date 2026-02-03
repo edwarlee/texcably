@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--sans-serif), sans-serif;
+    background-color: rgb(var(--beige));
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.errorlist {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    list-style-type: none;
+    color: rgb(var(--form-error));
+}
+
+.error {
+    outline: 1px solid rgb(var(--form-error));
+}
+
+.addword-form {
+    padding: 5rem;
+    background-color: rgb(var(--dark-green));
+    width: 30rem;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.addword-form a {
+    display: block;
+    color: rgb(var(--medium-l-green));
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.addword-form h1 {
+    color: white;
+    font-family: var(--serif), serif;
+    margin-bottom: 4rem;
+}
+
+.addword-form input {
+    display: block;
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    font-family: var(--sans-serif), serif;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(var(--medium-d-green));
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.addword-form input::placeholder {
+    font-weight: 300;
+    color: #ccc;
+}
+
+.addword-form input:focus {
+    outline: 1px solid rgb(var(--medium-l-green));
+}
+
+.addword-form button {
+    display: block;
+    margin-top: 2.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    font-family: var(--sans-serif), serif;
+    border-radius: 100px;
+    color: white;
+    background-color: rgb(var(--medium-green));
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.addword-form button:hover {
+    cursor: pointer;
+    background-color: rgb(var(--medium-l-green));
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

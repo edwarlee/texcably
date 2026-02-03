@@ -76,5 +76,5 @@ class UserLoginView(LoginView):
 class UserLogOutView(LoginRequiredMixin, View):
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect(reverse_lazy('login'))
+        return HttpResponseRedirect(reverse_lazy('index'))
 

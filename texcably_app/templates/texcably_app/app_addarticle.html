@@ -7,13 +7,18 @@
 {% endblock %}
 
 {% block head %}
-
+    <link rel="stylesheet" href="{% static 'texcably_app/css/addarticle.css' %}">
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+    <form method="post" class="addarticle-form" novalidate>
+        <a href="{% url 'app_index' %}">< Back</a>
+        <h1>Add New Article</h1>
         {% csrf_token %}
-        {{ form }}
+        {{ form.link }}
+        {{ form.link.errors }}
+        {{ form.words }}
+        {{ form.words.errors }}
         <button type="submit">Add Article</button>
     </form>
 {% endblock %}

@@ -11,6 +11,9 @@ class Word(models.Model):
     example_sentence = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.foreign_language;
+
 
 class Article(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles', db_index=True)

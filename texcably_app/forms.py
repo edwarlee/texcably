@@ -79,6 +79,33 @@ class LoginForm(AuthenticationForm):
             })
 
 
+class AddWordForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['primary_language'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Definition',
+        })
+        self.fields['foreign_language'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Word',
+        })
+        self.fields['example_sentence'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Sentence',
+        })
+        for field in self.fields:
+            if self.errors and field in self.errors:
+                self.fields[field].widget.attrs.update({
+                    'class': 'error',
+                })
+
+    class Meta:
+        model = Word
+        exclude = ['user', 'created_at']
+
+
 class AddArticleForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
@@ -86,12 +113,19 @@ class AddArticleForm(forms.ModelForm):
 
         self.fields['words'].queryset = self.user.words.all()
 
+        self.fields['link'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Link',
+        })
+
+        for field in self.fields:
+            if self.errors and field in self.errors:
+                self.fields[field].widget.attrs.update({
+                    'class': 'error',
+                })
+
     class Meta:
         model = Article
         exclude = ['user', 'created_at']
 
 
-class AddWordForm(forms.ModelForm):
-    class Meta:
-        model = Word
-        exclude = ['user', 'created_at']

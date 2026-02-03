@@ -88,6 +88,8 @@ nav a.logout {
 /* App Content */
 .content {
     flex-grow: 1;
+    animation: fadeIn 1s ease-in-out;
+    padding: 2rem;
 }
 
 .content h1 {
@@ -116,4 +118,13 @@ nav a.logout {
     border-radius: 20px;
     padding: 1rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

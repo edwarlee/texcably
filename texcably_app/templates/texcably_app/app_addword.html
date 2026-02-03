@@ -3,17 +3,24 @@
 {% load static %}
 
 {% block title %}
-
+    Create New Word
 {% endblock %}
 
 {% block head %}
-
+    <link rel="stylesheet" href="{% static 'texcably_app/css/addword.css' %}">
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+    <form method="post" class="addword-form" novalidate>
+        <a href="{% url 'app_index' %}">< Back</a>
+        <h1>Create New Word</h1>
         {% csrf_token %}
-        {{ form }}
+        {{ form.foreign_language }}
+        {{ form.foreign_language.errors }}
+        {{ form.primary_language }}
+        {{ form.primary_language.errors }}
+        {{ form.example_sentence }}
+        {{ form.example_sentence.errors }}
         <button type="submit">Add Word</button>
     </form>
 {% endblock %}
