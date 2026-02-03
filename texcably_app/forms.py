@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
+from .models import Article, Word
+
 class CreateUserForm(UserCreationForm):
     first_name = forms.CharField(max_length=20, required=True)
     last_name = forms.CharField(max_length=20, required=True)
@@ -75,3 +77,21 @@ class LoginForm(AuthenticationForm):
             self.fields['password'].widget.attrs.update({
                 'class': 'error',
             })
+
+
+class AddArticleForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+
+        self.fields['words'].queryset = self.user.words.all()
+
+    class Meta:
+        model = Article
+        exclude = ['user', 'created_at']
+
+
+class AddWordForm(forms.ModelForm):
+    class Meta:
+        model = Word
+        exclude = ['user', 'created_at']

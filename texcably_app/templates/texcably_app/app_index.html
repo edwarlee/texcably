@@ -1,10 +1,55 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 	App
 {% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'texcably_app/css/app.css' %}">
+{% endblock %}
+
 {% block content %}
-	<h1>Texcably App | You are logged in</h1>
-    <a href="{% url 'logout' %}">Log Out</a>
+    <div class="container">
+        <nav>
+            <div class="title-container">
+                {# <button><i class="fa-solid fa-bars"></i></button> #}
+                <h2>Texcably</h2>
+            </div>
+            <div class="items-container">
+                <ul>
+                    <li><a href="" class="current-page"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                    <li><a href=""><i class="fa-solid fa-book"></i> Your Dictionary</a></li>
+                    <li><a href=""><i class="fa-solid fa-newspaper"></i> Your Articles</a></li>
+                    <li><a href=""><i class="fa-solid fa-gear"></i> Settings</a></li>
+                </ul>
+                <a href="{% url 'logout' %}" class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log
+                    Out</a>
+            </div>
+
+        </nav>
+        <div class="content">
+            <h1>Welcome, <span>{{ user.first_name }}</span></h1>
+            <div class="grid-container">
+                <div class="box quick-actions">
+                    <h3>Quick Actions</h3>
+                    <ul>
+                        <li><a href="{% url 'add_article' %}">Add article</a></li>
+                        <li><a href="{% url 'add_word' %}">Add word</a></li>
+                    </ul>
+                </div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'texcably_app/js/app_navbar.js' %}"></script>
+    <script src="https://kit.fontawesome.com/43d09edae1.js" crossorigin="anonymous"></script>
+
 {% endblock %}
