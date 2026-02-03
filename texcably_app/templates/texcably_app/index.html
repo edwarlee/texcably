@@ -2,15 +2,24 @@
 
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 	Texcably
 {% endblock %}
 
 {% block head %}
-
+    <link rel="stylesheet" href="{% static 'texcably_app/css/landingpage.css' %}">
 {% endblock %}
 
 {% block content %}
-	<h1>Texcably App</h1>
-    <a href="{% url 'login' %}">Login Page</a>
+    <nav>
+        <h2>Texcably App</h2>
+        <a href="{% url 'login' %}">Login</a>
+    </nav>
+
+    <header>
+        <h1>Welcome to the <span class="underline">Texcably App</span><span class="dot">.</span></h1>
+        <p>An easy solution for keeping track of vocabulary in context.</p>
+    </header>
 {% endblock %}

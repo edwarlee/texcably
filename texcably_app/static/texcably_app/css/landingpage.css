@@ -1,0 +1,62 @@
+body {
+    background-color: #fff;
+    font-family: var(--sans-serif), sans-serif;
+}
+
+h1 {
+    font-family: var(--serif), serif;
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+h1 .dot {
+    color: rgb(var(--medium-green));
+    font-weight: bold;
+}
+
+h1 .underline {
+    text-decoration: underline rgb(var(--medium-green));
+}
+
+h2 {
+    font-family: var(--sans-serif), serif;
+    color: white;
+    font-weight: normal;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    padding-inline: 2rem;
+    background-color: rgb(var(--dark-green))
+}
+
+nav a {
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    background-color: rgb(var(--medium-green));
+    color: rgb(var(--beige));
+    font-weight: bold;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    background-color: rgb(var(--medium-l-green));
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    background-color: rgb(var(--beige));
+}
+
+header p {
+    margin-block: 2rem;
+}
