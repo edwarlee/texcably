@@ -1,13 +1,54 @@
 {% extends 'base.html' %}
 
-{% block title %}
+{% load static %}
 
+{% block title %}
+    Create Account
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'texcably_app/css/createaccount.css' %}">
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+    <form method="post" novalidate class="create-account-form">
+        <a href="{% url 'index' %}" class="back-link">< Back</a>
+        <h1>Create Account</h1>
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Create Account</button>
+        <div class="step active fadein">
+            <p class="step-counter">Step 1 of 3</p>
+            <p>Enter your first and last name</p>
+            {{ form.first_name }}
+            {{ form.first_name.errors }}
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+            <button type="button" id="step1-btn">Continue</button>
+        </div>
+        <div class="step fadein">
+            <p class="step-counter">Step 2 of 3</p>
+            <p>Enter your email and pick a unique username with a maximum of 20 characters</p>
+            {{ form.email }}
+            {{ form.email.errors }}
+            {{ form.username }}
+            {{ form.username.errors }}
+            <button type="button" id="step2-btn">Continue</button>
+        </div>
+        <div class="step fadein">
+            <p class="step-counter">Step 3 of 3</p>
+            <p>Please enter a strong password:</p>
+            <ul class="password-requirements-list">
+                <li>Password must be at least 8 characters long</li>
+                <li>Password must not consist only of numbers</li>
+                <li>Password must not be too similar to your personal information</li>
+                <li>Password must not be a commonly used password</li>
+            </ul>
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+            <button type="submit">Create Account</button>
+        </div>
     </form>
+
+    <script src="{% static 'texcably_app/js/createaccount.js' %}"></script>
 {% endblock %}

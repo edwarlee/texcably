@@ -15,6 +15,18 @@ class CreateUserForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['first_name'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'First name',
+        })
+        self.fields['last_name'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Last name',
+        })
+        self.fields['email'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Email',
+        })
         self.fields['username'].widget.attrs.update({
             'class': '',
             'placeholder': 'Username',
@@ -23,6 +35,15 @@ class CreateUserForm(UserCreationForm):
             'class': '',
             'placeholder': 'Password',
         })
+        self.fields['password2'].widget.attrs.update({
+            'class': '',
+            'placeholder': 'Confirm Password',
+        })
+        for field in self.fields:
+            if self.errors and field in self.errors:
+                self.fields[field].widget.attrs.update({
+                    'class': 'error',
+                })
 
 
 class LoginForm(AuthenticationForm):
