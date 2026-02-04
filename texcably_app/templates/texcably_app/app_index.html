@@ -12,23 +12,7 @@
 
 {% block content %}
     <div class="container">
-        <nav>
-            <div class="title-container">
-                {# <button><i class="fa-solid fa-bars"></i></button> #}
-                <h2>Texcably</h2>
-            </div>
-            <div class="items-container">
-                <ul>
-                    <li><a href="" class="current-page"><i class="fa-solid fa-house"></i> Dashboard</a></li>
-                    <li><a href=""><i class="fa-solid fa-book"></i> Your Dictionary</a></li>
-                    <li><a href=""><i class="fa-solid fa-newspaper"></i> Your Articles</a></li>
-                    <li><a href=""><i class="fa-solid fa-gear"></i> Settings</a></li>
-                </ul>
-                <a href="{% url 'logout' %}" class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log
-                    Out</a>
-            </div>
-
-        </nav>
+        {% include 'texcably_app/includes/app_navbar.html' %}
         <div class="content">
             <h1>Welcome, <span>{{ user.first_name }}</span></h1>
             <div class="grid-container">
