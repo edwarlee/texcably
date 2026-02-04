@@ -1,0 +1,141 @@
+body {
+    background-color: rgb(var(--dark-green));
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorlist {
+    color: rgb(var(--form-error));
+    font-size: 0.8rem;
+    list-style-type: none;
+    margin-top: 0.5rem;
+}
+
+.error {
+    background: rgba(var(--form-error), 0.2) !important;
+    border-color: rgb(var(--form-error)) !important;
+}
+
+.create-account-form {
+    margin: auto;
+    padding: 4rem;
+    min-width: 500px;
+    width: 40%;
+    font-family: var(--sans-serif), sans-serif;
+    background-color: white;
+    box-shadow: 0 5px 30px black;
+    border-radius: 10px;
+}
+
+.create-account-form .fadein {
+    animation: fadeIn 0.5s ease-in-out forwards
+}
+
+.create-account-form .fadeout {
+    animation: fadeOut 0.5s ease-in-out backwards
+}
+
+.create-account-form .active {
+    display: block !important;
+}
+
+.create-account-form .step {
+    display: none;
+}
+
+.create-account-form .back-link {
+    display: block;
+    margin-block: 1rem;
+    font-weight: bold;
+    color: rgb(var(--medium-green));
+}
+
+.create-account-form h1 {
+    margin-bottom: 4rem;
+    font-family: var(--serif), serif;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.create-account-form .password-requirements-list {
+    list-style-type: none;
+    font-size: 0.8rem;
+    color: rgb(var(--medium-green))
+}
+
+.create-account-form .step-counter {
+    color: rgb(var(--medium-green));
+    font-weight: bold;
+}
+
+.create-account-form input {
+    font-family: var(--sans-serif), serif;
+    display: block;
+    margin-top: 2rem;
+    padding: 0.7rem;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid rgb(var(--medium-green));
+    border-radius: 0;
+}
+
+.create-account-form input::placeholder {
+    font-family: var(--sans-serif), serif;
+    font-weight: 300;
+}
+
+.create-account-form input:focus {
+    outline: 1px solid rgb(var(--medium-green));
+}
+
+.create-account-form button {
+    cursor: pointer;
+    display: block;
+    margin-top: 3rem;
+    padding: 0.7rem 2rem;
+    font-family: var(--sans-serif), serif;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(var(--medium-green));
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(var(--medium-green), 0.5);
+}
+
+.create-account-form button:hover {
+    background-color: rgb(var(--dark-green));
+    box-shadow: 0 5px 10px rgba(var(--dark-green), 0.5);
+    transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 660px) {
+    .create-account-form {
+        min-width: 300px;
+        padding: 2rem;
+    }
+
+    .create-account-form h1 {
+        font-size: 2rem;
+    }
+}
