@@ -92,8 +92,9 @@ WSGI_APPLICATION = 'texcably.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://mysite:L065HnG7aw8Dm75sW3ph0RUQ28NonzIj@dpg-d61p1rfgi27c73ceelu0-a/mysite_62yz',
-        conn_max_age=600
+        default=getenv('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
     )
 }
 
