@@ -1,6 +1,6 @@
 body {
     font-family: var(--sans-serif), sans-serif;
-    background-color: #eee;
+    background-color: rgb(var(--beige));
 }
 
 .container {
@@ -85,6 +85,10 @@ nav a.logout {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+nav a.logout:hover {
+    background-color: rgb(var(--medium-green));
+}
+
 /* App Content */
 .content {
     flex-grow: 1;
@@ -116,8 +120,37 @@ nav a.logout {
 .box {
     background-color: white;
     border-radius: 20px;
-    padding: 1rem;
+    padding: 1.5rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.quick-actions ul {
+    margin-top: 1rem;
+    list-style-type: none;
+}
+
+.quick-actions li {
+    margin-top: 1rem;
+}
+
+.quick-actions a {
+    display: block;
+    text-decoration: none;
+    padding: 1rem;
+    color: white;
+    background-color: rgb(var(--medium-green));
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.quick-actions a:hover {
+    background-color: rgb(var(--medium-l-green));
 }
 
 @keyframes fadeIn {
