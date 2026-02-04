@@ -1,6 +1,10 @@
 body {
     background-color: #fff;
     font-family: var(--sans-serif), sans-serif;
+    /* Temporary */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -59,4 +63,22 @@ header {
 
 header p {
     margin-block: 2rem;
+}
+
+.warning {
+    flex-grow: 1;
+    background-color: rgb(227, 51, 38);
+    padding: 2rem;
+}
+
+.warning h2 {
+    font-size: 2rem;
+    font-family: var(--serif), serif;
+}
+
+.warning p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    font-style: italic;
 }

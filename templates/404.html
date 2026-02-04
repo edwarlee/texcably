@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+	Page Not Found
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'texcably_app/css/landingpage.css' %}">
+{% endblock %}
+
+{% block content %}
+    <nav>
+        <h2>Texcably</h2>
+        <a href="{% url 'login' %}">Login</a>
+    </nav>
+
+    <header>
+        <h1>404 <span class="underline">Page Not Found<span class="dot">.</span></span></h1>
+        <p>Please login to access the app.</p>
+    </header>
+{% endblock %}
