@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, RedirectView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
@@ -55,6 +55,31 @@ class WordCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+# App words list
+class DictionaryView(LoginRequiredMixin, ListView):
+    template_name = 'texcably_app/app_dictionary.html'
+    model = Word
+    context_object_name = 'words'
+
+    def get_queryset(self):
+        base_query = super().get_queryset()
+        data = base_query.filter(user=self.request.user)
+        return data
+
+
+# App Article List
+class ArticleListView(LoginRequiredMixin, ListView):
+    template_name = 'texcably_app/app_articles.html'
+    model = Article
+    context_object_name = 'articles'
+
+    def get_queryset(self):
+        base_query = super().get_queryset()
+        data = base_query.filter(user=self.request.user)
+        return data
+
 
 # User Authentication
 class CreateAccountView(CreateView):

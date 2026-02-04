@@ -1,0 +1,23 @@
+.grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(10rem, 1fr));
+}
+
+.box h3 {
+    margin-bottom: 0.5rem;
+}
+
+.box p {
+    margin-block: 0.5rem;
+}
+
+.definition {
+    color: rgb(var(--medium-l-green));
+    font-style: italic;
+}
+
+.sentence {
+    color: #555;
+    font-weight: bold;
+}
+

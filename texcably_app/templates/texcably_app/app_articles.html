@@ -8,21 +8,27 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'texcably_app/css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'texcably_app/css/articles.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="container">
         {% include 'texcably_app/includes/app_navbar.html' %}
         <div class="content">
-            <h1>Welcome, <span>{{ user.first_name }}</span></h1>
+            <h1>Your Saved Articles</h1>
             <div class="grid-container">
-                <div class="box quick-actions">
-                    <h3>Quick Actions</h3>
-                    <ul>
-                        <li><a href="{% url 'add_article' %}">Add article</a></li>
-                        <li><a href="{% url 'add_word' %}">Add word</a></li>
-                    </ul>
-                </div>
+                {% for article in articles %}
+                	<div class="box">
+                        <a href="{{ article.link }}" class="article-link">{{ article.link }}</a>
+                        <p class="articles--wordslabel">Saved Words</p>
+                        <ul class="article--wordslist">
+                            {% for word in article.words.all %}
+                            	<li>{{ word }}</li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                {% endfor %}
 {#                <div class="box"></div>#}
 {#                <div class="box"></div>#}
 {#                <div class="box"></div>#}
@@ -33,7 +39,7 @@
     </div>
 
     <script>
-        document.querySelector('nav li:nth-child(1) a').classList.add('current-page');
+        document.querySelector('nav li:nth-child(3) a').classList.add('current-page');
     </script>
     <script src="{% static 'texcably_app/js/app_navbar.js' %}"></script>
     <script src="https://kit.fontawesome.com/43d09edae1.js" crossorigin="anonymous"></script>

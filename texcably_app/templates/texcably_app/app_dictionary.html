@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+	App
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'texcably_app/css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'texcably_app/css/dictionary.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include 'texcably_app/includes/app_navbar.html' %}
+        <div class="content">
+            <h1>Your Dictionary</h1>
+            <div class="grid-container">
+                {% for word in words %}
+                	<div class="box">
+                        <h3>{{ word.foreign_language }}</h3>
+                        <p class="definition">{{ word.primary_language }}</p>
+                        <p class="sentence">{{ word.example_sentence }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('nav li:nth-child(2) a').classList.add('current-page');
+    </script>
+    <script src="{% static 'texcably_app/js/app_navbar.js' %}"></script>
+    <script src="https://kit.fontawesome.com/43d09edae1.js" crossorigin="anonymous"></script>
+
+{% endblock %}

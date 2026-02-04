@@ -5,15 +5,17 @@ body {
 
 .container {
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
+    display: grid;
+    grid-template-columns: 20rem auto;
+    min-height: 100vh;
 }
 
 /* Navbar */
 nav {
-    height: 100%;
-    width: 20rem;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -91,9 +93,9 @@ nav a.logout:hover {
 
 /* App Content */
 .content {
-    flex-grow: 1;
     animation: fadeIn 1s ease-in-out;
     padding: 2rem;
+    overflow-y: scroll;
 }
 
 .content h1 {
@@ -113,8 +115,9 @@ nav a.logout:hover {
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
     grid-gap: 1rem;
-    height: 75vh;
+    min-height: 75vh;
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 .box {
