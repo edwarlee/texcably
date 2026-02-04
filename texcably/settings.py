@@ -29,7 +29,7 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = getenv('IS_DEVELOPMENT', True)
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'texcably.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgresql://mysite:L065HnG7aw8Dm75sW3ph0RUQ28NonzIj@dpg-d61p1rfgi27c73ceelu0-a/mysite_62yz',
         conn_max_age=600
     )
 }
